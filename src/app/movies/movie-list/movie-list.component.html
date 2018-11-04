@@ -1,0 +1,6 @@
+<button class="btn btn-primary">Add Movie</button>
+<hr>
+<app-movie-item
+*ngFor="let movieElement of movies; let i = index"
+[movie]="movieElement"
+[index]="i"></app-movie-item>
