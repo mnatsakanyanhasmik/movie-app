@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie.model';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class MovieService {
-
+    moviesChanged = new Subject<Movie[]>();
 
     private movies: Movie[] = [
         new Movie(
@@ -22,6 +23,11 @@ export class MovieService {
 
     getMovie(index: number) {
         return this.movies[index];
+    }
+
+    updateMovie(index: number, newMovie: Movie) {
+        this.movies[index] = newMovie;
+        this.moviesChanged.next(this.movies.slice());
     }
 
 }

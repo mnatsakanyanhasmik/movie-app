@@ -1,3 +1,59 @@
-<p>
-  movie-edit works!
-</p>
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!movieForm.valid">Save</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="coverPath">Cover URL</label>
+              <input
+                type="text"
+                id="coverPath"
+                formControlName="coverPath"
+                class="form-control"
+                #coverPath>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <img style="max-height: 200px;" [src]="coverPath.value" class="img-responsive">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                type="text"
+                id="description"
+                class="form-control"
+                formControlName="description"
+                rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
