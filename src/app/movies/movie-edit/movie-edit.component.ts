@@ -10,16 +10,25 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-edit.component.css']
 })
 export class MovieEditComponent implements OnInit {
+  firstMovieYear: number = 1888;
+  
   id: number;
   editMode = false;
   movieForm: FormGroup;
-
+  years: number[] = [];
+  
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+
+    for(let i = this.firstMovieYear; i < (new Date()).getFullYear(); i++) {
+      this.years.push(i);
+    }
+  }
 
   ngOnInit() {
+
     this.route.params
     .subscribe(
       (params: Params) => {
@@ -48,21 +57,26 @@ export class MovieEditComponent implements OnInit {
 
   private initForm() {
     let movieName = '';
+    let movieYear;
     let movieCoverPath = '';
     let movieDescription = '';
 
     if (this.editMode) {
       const movie = this.movieService.getMovie(this.id);
       movieName = movie.name;
+      movieYear = movie.year;
       movieCoverPath = movie.coverPath;
       movieDescription = movie.description;
     }
 
     this.movieForm = new FormGroup({
       'name': new FormControl(movieName, Validators.required),
+      'year': new FormControl(null, Validators.required),
       'coverPath': new FormControl(movieCoverPath, Validators.required),
       'description': new FormControl(movieDescription, Validators.required)
     });
+    
+    this.movieForm.controls['year'].setValue(movieYear, {onlySelf: true})
   }
 
 }

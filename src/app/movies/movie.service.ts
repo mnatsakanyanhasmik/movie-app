@@ -10,11 +10,13 @@ export class MovieService {
         new Movie(
             'Kino 1',
             'Dolor sit ament',
-            'https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png'),
+            'https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png',
+            1988),
         new Movie(
             'Kino 2',
             'Wow lorem ipsum?',
-            'http://www.gstatic.com/tv/thumb/v22vodart/12003594/p12003594_v_v8_af.jpg')
+            'http://www.gstatic.com/tv/thumb/v22vodart/12003594/p12003594_v_v8_af.jpg',
+            2017)
     ];
 
     getMovies() {
