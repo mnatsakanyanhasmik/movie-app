@@ -30,6 +30,10 @@ export class MovieEditComponent implements OnInit {
   }
 
   onCancel() {
+    this.routeUp();
+  }
+  
+  private routeUp() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
@@ -37,8 +41,9 @@ export class MovieEditComponent implements OnInit {
     if (this.editMode) {
       this.movieService.updateMovie(this.id, this.movieForm.value);
     } else {
-      // Todo: add new item should be handled.
+      this.movieService.addMovie(this.movieForm.value);
     }
+    this.routeUp();
   }
 
   private initForm() {

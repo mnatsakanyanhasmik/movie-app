@@ -30,4 +30,9 @@ export class MovieService {
         this.moviesChanged.next(this.movies.slice());
     }
 
+    addMovie(toAddMovie: Movie) {
+        this.movies.push(toAddMovie);
+        this.moviesChanged.next(this.movies.slice());
+    }
+
 }
