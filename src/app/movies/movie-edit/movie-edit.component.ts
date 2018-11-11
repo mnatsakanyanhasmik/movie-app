@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { MovieService } from '../movie.service';
+import { MovieDuration } from '../movie-duration.model';
 
 @Component({
   selector: 'app-movie-edit',
@@ -60,6 +61,7 @@ export class MovieEditComponent implements OnInit {
     let movieYear;
     let movieCoverPath = '';
     let movieDescription = '';
+    let movieDuration : MovieDuration = new MovieDuration();
 
     if (this.editMode) {
       const movie = this.movieService.getMovie(this.id);
@@ -67,15 +69,20 @@ export class MovieEditComponent implements OnInit {
       movieYear = movie.year;
       movieCoverPath = movie.coverPath;
       movieDescription = movie.description;
+      movieDuration = movie.duration;
     }
 
     this.movieForm = new FormGroup({
       'name': new FormControl(movieName, Validators.required),
       'year': new FormControl(null, Validators.required),
       'coverPath': new FormControl(movieCoverPath, Validators.required),
-      'description': new FormControl(movieDescription, Validators.required)
+      'description': new FormControl(movieDescription, Validators.required),
+      'duration': new FormGroup({
+        'hours': new FormControl(movieDuration.hours, [Validators.required, Validators.min(0), Validators.max(1000)]),
+        'minutes': new FormControl(movieDuration.minutes, [Validators.required, Validators.min(0), Validators.max(59)])
+      }),
     });
-    
+  
     this.movieForm.controls['year'].setValue(movieYear, {onlySelf: true})
   }
 

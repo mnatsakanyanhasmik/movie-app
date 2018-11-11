@@ -41,6 +41,30 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
+            <div formGroupName="duration">
+            <div class="form-group">
+              <label for="duration">Duration</label>
+              <input
+                type="number"
+                min="0"
+                max="1000"
+                id="hours"
+                formControlName="hours"
+                class="form-control">
+                <span>:</span>
+              <input
+                type="number"
+                min="0"
+                max="59"
+                id="minutes"
+                formControlName="minutes"
+                class="form-control">
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
             <div class="form-group">
               <label for="coverPath">Cover URL</label>
               <input
