@@ -8,7 +8,7 @@ import { MovieDuration } from '../movie-duration.model';
 @Component({
   selector: 'app-movie-edit',
   templateUrl: './movie-edit.component.html',
-  styleUrls: ['./movie-edit.component.css']
+  styleUrls: ['./movie-edit.component.scss']
 })
 export class MovieEditComponent implements OnInit {
   firstMovieYear: number = 1888;
