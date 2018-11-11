@@ -73,10 +73,10 @@ export class MovieEditComponent implements OnInit {
     }
 
     this.movieForm = new FormGroup({
-      'name': new FormControl(movieName, Validators.required),
+      'name': new FormControl(movieName, [Validators.required, Validators.maxLength(100)]),
       'year': new FormControl(null, Validators.required),
       'coverPath': new FormControl(movieCoverPath, Validators.required),
-      'description': new FormControl(movieDescription, Validators.required),
+      'description': new FormControl(movieDescription, [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]),
       'duration': new FormGroup({
         'hours': new FormControl(movieDuration.hours, [Validators.required, Validators.min(0), Validators.max(1000)]),
         'minutes': new FormControl(movieDuration.minutes, [Validators.required, Validators.min(0), Validators.max(59)])
@@ -86,4 +86,10 @@ export class MovieEditComponent implements OnInit {
     this.movieForm.controls['year'].setValue(movieYear, {onlySelf: true})
   }
 
+  get name() { return this.movieForm.get('name'); }
+  get year() { return this.movieForm.get('year'); }
+  get coverPath() { return this.movieForm.get('coverPath'); }
+  get description() { return this.movieForm.get('description'); }
+  get hours() { return this.movieForm.get('duration').get('hours'); }
+  get minutes() { return this.movieForm.get('duration').get('minutes'); }
 }

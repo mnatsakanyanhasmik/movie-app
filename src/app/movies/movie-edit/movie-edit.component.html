@@ -20,6 +20,15 @@
                 placeholder="Movie title"
                 formControlName="name"
                 class="form-control">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="name.errors.required">
+                      Title is required
+                  </div>
+                  <div *ngIf="name.errors.maxlength">
+                      Title should not exceed 100 characters
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -38,6 +47,12 @@
                   {{year}}
                 </option>
               </select>
+              <div *ngIf="year.invalid && year.touched"
+                class="alert alert-danger">
+                <div *ngIf="year.errors.required">
+                    Realease year is required
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -54,7 +69,18 @@
                 id="hours"
                 formControlName="hours"
                 class="form-control">
-                <span>:</span>
+                <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="hours.errors.required">
+                      Duration hours is required
+                  </div>
+                  <div *ngIf="hours.errors.min">
+                      Duration hours should be a positive number
+                  </div>
+                  <div *ngIf="hours.errors.max">
+                      Duration hours should not exceed 1000
+                  </div>
+                </div>
               <input
                 type="number"
                 placeholder="Minutes"
@@ -63,6 +89,18 @@
                 id="minutes"
                 formControlName="minutes"
                 class="form-control">
+                <div *ngIf="minutes.invalid && (minutes.dirty || minutes.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="minutes.errors.required">
+                      Duration minutes is required
+                  </div>
+                  <div *ngIf="minutes.errors.min">
+                      Duration minutes should be a positive number
+                  </div>
+                  <div *ngIf="minutes.errors.max">
+                      Duration minutes should not exceed 59
+                  </div>
+                </div>
             </div>
             </div>
           </div>
@@ -72,12 +110,17 @@
             <div class="form-group">
               <label for="coverPath">Cover url</label>
               <input
-                type="text"
+                type="url"
                 placeholder="Cover image url"
                 id="coverPath"
                 formControlName="coverPath"
-                class="form-control"
-                #coverPath>
+                class="form-control">
+                <div *ngIf="coverPath.invalid && (coverPath.dirty || coverPath.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="coverPath.errors.required">
+                      Cover path url is required
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -97,6 +140,18 @@
                 class="form-control"
                 formControlName="description"
                 rows="6"></textarea>
+                <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="description.errors.required">
+                      Description is required
+                  </div>
+                  <div *ngIf="description.errors.maxlength">
+                      Description should not exceed 1000 characters
+                  </div>
+                  <div *ngIf="description.errors.minlength">
+                      Description should be at least 3 characters
+                  </div>
+                </div>
             </div>
           </div>
         </div>
