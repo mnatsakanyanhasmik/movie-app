@@ -13,10 +13,11 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Title</label>
               <input
                 type="text"
                 id="name"
+                placeholder="Movie title"
                 formControlName="name"
                 class="form-control">
             </div>
@@ -30,6 +31,7 @@
               id="year"
               class="form-control" 
               formControlName="year">
+                <option [ngValue]="null" disabled [selected]="true">Choose release date</option>
                 <option 
                   *ngFor="let year of years" 
                   [value]="year">
@@ -46,6 +48,7 @@
               <label for="duration">Duration</label>
               <input
                 type="number"
+                placeholder="Hours"
                 min="0"
                 max="1000"
                 id="hours"
@@ -54,6 +57,7 @@
                 <span>:</span>
               <input
                 type="number"
+                placeholder="Minutes"
                 min="0"
                 max="59"
                 id="minutes"
@@ -66,9 +70,10 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
-              <label for="coverPath">Cover URL</label>
+              <label for="coverPath">Cover url</label>
               <input
                 type="text"
+                placeholder="Cover image url"
                 id="coverPath"
                 formControlName="coverPath"
                 class="form-control"
@@ -87,6 +92,7 @@
               <label for="description">Description</label>
               <textarea
                 type="text"
+                placeholder="Movie description"
                 id="description"
                 class="form-control"
                 formControlName="description"
