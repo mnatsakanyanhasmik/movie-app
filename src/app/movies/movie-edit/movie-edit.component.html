@@ -2,7 +2,7 @@
   <div class="popover-box">
     <span 
       class="close-popup" 
-      routerLink="../">&nbsp;</span>
+      routerLink="/">&nbsp;</span>
     <h2>Movie details (all fields are required)!</h2>
     <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
 
@@ -27,14 +27,13 @@
         </div>
 
         <div class="form-group">
-          <label for="year">Year</label>
+          <label for="year">Release year</label>
           <select
           id="year"
           class="form-control" 
           formControlName="year">
-            <option [ngValue]="null" disabled [selected]="true">Release date</option>
             <option 
-              *ngFor="let year of years" 
+              *ngFor="let year of years"
               [value]="year">
               {{year}}
             </option>
@@ -125,7 +124,7 @@
           id="description"
           class="form-control"
           formControlName="description"
-          rows="6"></textarea>
+          rows="4"></textarea>
           <div 
             *ngIf="description.invalid && (description.dirty || description.touched)"
             class="error-msg">
@@ -142,16 +141,15 @@
       </div>
       <hr>
       <div class="btn-container">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="!movieForm.valid">Save</button>
         <button 
         type="button" 
         class="btn btn-danger" 
         (click)="onCancel()">Cancel</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!movieForm.valid">Save</button>
       </div>
     </form>
   </div>
 </div>
-  

@@ -23,7 +23,8 @@ export class MovieEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) {
 
-    for(let i = this.firstMovieYear; i < (new Date()).getFullYear(); i++) {
+    // We allow to add movies starting from today's year till "firstMovieYear"
+    for(let i = (new Date()).getFullYear(); i >= this.firstMovieYear; i--) {
       this.years.push(i);
     }
   }
@@ -58,7 +59,7 @@ export class MovieEditComponent implements OnInit {
 
   private initForm() {
     let movieName = '';
-    let movieYear;
+    let movieYear = (new Date).getFullYear();
     let movieCoverPath = '';
     let movieDescription = '';
     let movieDuration : MovieDuration = new MovieDuration();
