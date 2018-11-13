@@ -6,6 +6,12 @@
     > img {
         float: left;
         margin-right: $distance-l;
+        max-height: 200px;
+        max-width: 150px;
+    }
+
+    h2 {
+        margin-bottom: 0;
     }
 
     .year-duration {

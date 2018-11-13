@@ -13,20 +13,28 @@ export class MovieService {
             'Affable hillbillies Tucker and Dale are on vacation at their dilapidated mountain cabin when they are mistaken for murderers by a group of preppy college students.',
             'http://www.gstatic.com/tv/thumb/movieposters/8090141/p8090141_p_v8_af.jpg',
             2010,
-            new MovieDuration(1, 30)),
+            new MovieDuration(1, 30),
+            null),
         new Movie(
             'War Dogs',
             'With the war in Iraq raging on, a young man (Jonah Hill) offers his childhood friend a chance to make big bucks by becoming an international arms dealer. Together, they exploit a government initiative that allows businesses to bid on U.S. military contracts. Starting small allows the duo to rake in money and live the high life. ',
             'http://www.gstatic.com/tv/thumb/v22vodart/12118906/p12118906_v_v8_ab.jpg',
             2016,
-            new MovieDuration(2, 10)),
+            new MovieDuration(2, 10),
+            null),
         new Movie(
             'Shaun of the Dead',
             'A man decides to turn his moribund life around by winning back his ex-girlfriend, reconciling his relationship with his mother and dealing with an entire community that has returned from the dead to eat the living. ',
             'http://www.gstatic.com/tv/thumb/v22vodart/34914/p34914_v_v8_ae.jpg',
             2004,
-            new MovieDuration(1, 39))
+            new MovieDuration(1, 39),
+            null)
     ];
+
+    rateMovie(index: number, rateValue: number) {
+        this.movies[index].rateValue = rateValue;
+        this.moviesChanged.next(this.movies.slice());
+    }
 
     getMovies() {
         return this.movies.slice();

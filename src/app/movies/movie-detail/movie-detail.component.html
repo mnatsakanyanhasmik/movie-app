@@ -16,17 +16,19 @@
         class="img-responsive"
         style="max-height: 200px;">
 
-      <div class="">
-          <h2>{{ movie.name }}</h2>
-      </div>
+      <h2>{{ movie.name }}</h2>
+
+      <app-movie-rating
+      [isInteractive]="true"
+      [id]="id"
+      [rateValue]="movie.rateValue"></app-movie-rating>
+
       <div class="year-duration">
           {{ movie.year }}
           &nbsp;&nbsp;|&nbsp;&nbsp;
           {{ movie.duration.hours }}h {{ movie.duration.minutes }}m
       </div>
-      <div class="">
-          {{ movie.description }}
-      </div>
+      <p>{{ movie.description }}</p>
   </div>
   </div>
 </div>

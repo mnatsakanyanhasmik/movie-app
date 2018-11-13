@@ -18,36 +18,40 @@ $desc-line: 23px;
         box-shadow: 0px 0px 4px 2px $grey-1;
     }
 
-    h3 {
-        @include ellipsis(100%);
-        color: $primary-color;
-        display: block;
-        font-size: inherit;
-        margin: 0;
-        padding: $distance-xxs $distance-xs; 
-    }
+    .movie-details-wrapper {
+        padding: 0 $distance-xs;
 
-    .description {
-        max-height: $desc-line * 2;
-        overflow: hidden;
-        line-height: $desc-line;
-        padding: 0 $distance-xs; 
-    }
-
-    .details {
-        display: flex;
-        flex-wrap: nowrap;
-        padding: $distance-xxs $distance-xs; 
-        > div {
-            @include ellipsis(50%);
-            font-size: 14px;
-            font-weight: bold;
-            max-width: 50%;
+        h3 {
+            @include ellipsis(100%);
+            color: $primary-color;
+            display: block;
+            margin: 0;
+            padding: $distance-xxs 0; 
+        }
+    
+        .description {
+            max-height: $desc-line * 2;
+            overflow: hidden;
+            line-height: $desc-line;
+        }
+    
+        .year-duration {
+            display: flex;
+            flex-wrap: nowrap;
+            
+            > div {
+                @include ellipsis(50%);
+                font-size: 14px;
+                font-weight: bold;
+                max-width: 50%;
+            }
         }
     }
 
     .cover-img {
         @include responsive-img-block(414px, 276px);
+        background-color: $grey-1;
+
         .cover-img-inner {
             @include responsive-img-block-inner();
         }

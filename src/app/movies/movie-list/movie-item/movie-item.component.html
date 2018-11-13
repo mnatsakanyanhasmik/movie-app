@@ -6,10 +6,17 @@
             <img [src]="movie.coverPath" alt="{{ movie.name }}"/>
         </div>
     </div>
-    <div class="details">
-        <div class="year">{{ movie.year }} &nbsp;&nbsp;/&nbsp;&nbsp;</div>
-        <div class="duration">{{ movie.duration.hours }}h {{ movie.duration.minutes }}m</div>
+    <div class="movie-details-wrapper">
+        <h3>{{ movie.name }}</h3>
+        <div class="year-duration">
+            <div class="year">{{ movie.year }} &nbsp;&nbsp;/&nbsp;&nbsp;</div>
+            <div class="duration">{{ movie.duration.hours }}h {{ movie.duration.minutes }}m</div>
+        </div>
+        
+        <app-movie-rating 
+        [id]="id"
+        [rateValue]="movie.rateValue"></app-movie-rating>
+    
+        <div text-angular ng-model="htmlcontent" ta-max-text="40" class="description">{{ movie.description }}</div>
     </div>
-    <h3>{{ movie.name }}</h3>
-    <div text-angular ng-model="htmlcontent" ta-max-text="40" class="description">{{ movie.description }}</div>
 </a>
