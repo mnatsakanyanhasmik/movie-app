@@ -1,41 +1,31 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img
-      [src]="movie.coverPath"
-      alt="{{ movie.name }}"
-      class="img-responsive"
-      style="max-height: 200px;">
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ movie.name }}</h1>
-  </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-      {{ movie.year }}
+<div class="popover">
+  <div class="popover-box">
+    <span class="close-popup" 
+      routerLink="/">&nbsp;</span>
+    <div class="">
+        <img
+          [src]="movie.coverPath"
+          alt="{{ movie.name }}"
+          class="img-responsive"
+          style="max-height: 200px;">
     </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-      {{ movie.duration.hours }}h {{ movie.duration.minutes }}m
+    <div class="">
+        <h1>{{ movie.name }}</h1>
     </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ movie.description }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <a 
-    style="cursor: pointer;"
-    class="btn btn-info"
-    (click)="onEditMovie()">Edit movie</a>
-    <a
-    style="cursor: pointer;"
-    class="btn btn-danger"
-    (click)="onDeleteMovie()">Delete Movie</a>
+    <div class="">
+          {{ movie.year }}
+    </div>
+    <div class="">
+          {{ movie.duration.hours }}h {{ movie.duration.minutes }}m
+    </div>
+    <div class="">
+        {{ movie.description }}
+    </div>
+    <div class="">
+      <a class="btn btn-info"
+      (click)="onEditMovie()">Edit movie</a>
+      <a class="btn btn-danger"
+      (click)="onDeleteMovie()">Delete Movie</a>
+    </div>
   </div>
 </div>

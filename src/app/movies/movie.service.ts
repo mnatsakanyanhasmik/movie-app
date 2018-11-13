@@ -9,16 +9,16 @@ export class MovieService {
 
     private movies: Movie[] = [
         new Movie(
-            'Kino 1',
-            'Dolor sit ament',
-            'https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png',
-            1988,
+            'Tucker & Dale vs. Evil',
+            'Two scruffy pals backwoods vacation takes a bloody turn when ignorant college students mistake them for a pair of murderous hillbillies.',
+            'http://www.gstatic.com/tv/thumb/movieposters/8090141/p8090141_p_v8_af.jpg',
+            2010,
             new MovieDuration(1, 30)),
         new Movie(
-            'Kino 2',
-            'Wow lorem ipsum?',
-            'http://www.gstatic.com/tv/thumb/v22vodart/12003594/p12003594_v_v8_af.jpg',
-            2017,
+            'War Dogs',
+            'With the war in Iraq raging on, a young man (Jonah Hill) offers his childhood friend a chance to make big bucks by becoming an international arms dealer. Together, they exploit a government initiative that allows businesses to bid on U.S. military contracts. Starting small allows the duo to rake in money and live the high life. ',
+            'http://www.gstatic.com/tv/thumb/v22vodart/12118906/p12118906_v_v8_ab.jpg',
+            2016,
             new MovieDuration(2, 10))
     ];
 

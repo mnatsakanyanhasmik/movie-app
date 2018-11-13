@@ -1,161 +1,152 @@
-<div class="row">
-    <div class="col-xs-12">
-      <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <div class="col-xs-12">
-            <button
-              type="submit"
-              class="btn btn-success"
-              [disabled]="!movieForm.valid">Save</button>
-            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="name">Title</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Movie title"
-                formControlName="name"
-                class="form-control">
-                <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="name.errors.required">
-                      Title is required
-                  </div>
-                  <div *ngIf="name.errors.maxlength">
-                      Title should not exceed 100 characters
-                  </div>
-                </div>
+<div class="popover">
+  <div class="popover-box">
+    <h1>Please fill in all details!</h1>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Title</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Movie title"
+          formControlName="name"
+          class="form-control">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="error-msg">
+            <div *ngIf="name.errors.required">
+                Title is required
+            </div>
+            <div *ngIf="name.errors.maxlength">
+                Title should not exceed 100 characters
             </div>
           </div>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <select
+        id="year"
+        class="form-control" 
+        formControlName="year">
+          <option [ngValue]="null" disabled [selected]="true">Choose release date</option>
+          <option 
+            *ngFor="let year of years" 
+            [value]="year">
+            {{year}}
+          </option>
+        </select>
+        <div *ngIf="year.invalid && year.touched"
+          class="error-msg">
+          <div *ngIf="year.errors.required">
+              Realease year is required
+          </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="year">Year</label>
-              <select
-              id="year"
-              class="form-control" 
-              formControlName="year">
-                <option [ngValue]="null" disabled [selected]="true">Choose release date</option>
-                <option 
-                  *ngFor="let year of years" 
-                  [value]="year">
-                  {{year}}
-                </option>
-              </select>
-              <div *ngIf="year.invalid && year.touched"
-                class="alert alert-danger">
-                <div *ngIf="year.errors.required">
-                    Realease year is required
-                </div>
+      </div>
+
+
+      <div formGroupName="duration">
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input
+            type="number"
+            placeholder="Hours"
+            min="0"
+            max="1000"
+            id="hours"
+            formControlName="hours"
+            class="form-control">
+            <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
+              class="error-msg">
+              <div *ngIf="hours.errors.required">
+                  Duration hours is required
+              </div>
+              <div *ngIf="hours.errors.min">
+                  Duration hours should be a positive number
+              </div>
+              <div *ngIf="hours.errors.max">
+                  Duration hours should not exceed 1000
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div formGroupName="duration">
-            <div class="form-group">
-              <label for="duration">Duration</label>
-              <input
-                type="number"
-                placeholder="Hours"
-                min="0"
-                max="1000"
-                id="hours"
-                formControlName="hours"
-                class="form-control">
-                <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="hours.errors.required">
-                      Duration hours is required
-                  </div>
-                  <div *ngIf="hours.errors.min">
-                      Duration hours should be a positive number
-                  </div>
-                  <div *ngIf="hours.errors.max">
-                      Duration hours should not exceed 1000
-                  </div>
-                </div>
-              <input
-                type="number"
-                placeholder="Minutes"
-                min="0"
-                max="59"
-                id="minutes"
-                formControlName="minutes"
-                class="form-control">
-                <div *ngIf="minutes.invalid && (minutes.dirty || minutes.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="minutes.errors.required">
-                      Duration minutes is required
-                  </div>
-                  <div *ngIf="minutes.errors.min">
-                      Duration minutes should be a positive number
-                  </div>
-                  <div *ngIf="minutes.errors.max">
-                      Duration minutes should not exceed 59
-                  </div>
-                </div>
+          <input
+            type="number"
+            placeholder="Minutes"
+            min="0"
+            max="59"
+            id="minutes"
+            formControlName="minutes"
+            class="form-control">
+            <div *ngIf="minutes.invalid && (minutes.dirty || minutes.touched)"
+              class="error-msg">
+              <div *ngIf="minutes.errors.required">
+                  Duration minutes is required
+              </div>
+              <div *ngIf="minutes.errors.min">
+                  Duration minutes should be a positive number
+              </div>
+              <div *ngIf="minutes.errors.max">
+                  Duration minutes should not exceed 59
+              </div>
             </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="coverPath">Cover url</label>
+        <input
+          type="url"
+          placeholder="Cover image url"
+          id="coverPath"
+          formControlName="coverPath"
+          class="form-control">
+          <div *ngIf="coverPath.invalid && (coverPath.dirty || coverPath.touched)"
+            class="error-msg">
+            <div *ngIf="coverPath.errors.required">
+                Cover path url is required
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="coverPath">Cover url</label>
-              <input
-                type="url"
-                placeholder="Cover image url"
-                id="coverPath"
-                formControlName="coverPath"
-                class="form-control">
-                <div *ngIf="coverPath.invalid && (coverPath.dirty || coverPath.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="coverPath.errors.required">
-                      Cover path url is required
-                  </div>
-                </div>
+      </div>
+
+
+      <div>
+        <img style="max-height: 200px;" [src]="coverPath.value" class="img-responsive">
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          type="text"
+          placeholder="Movie description"
+          id="description"
+          class="form-control"
+          formControlName="description"
+          rows="6"></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)"
+            class="alert alert-danger">
+            <div *ngIf="description.errors.required">
+                Description is required
+            </div>
+            <div *ngIf="description.errors.maxlength">
+                Description should not exceed 1000 characters
+            </div>
+            <div *ngIf="description.errors.minlength">
+                Description should be at least 3 characters
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <img style="max-height: 200px;" [src]="coverPath.value" class="img-responsive">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea
-                type="text"
-                placeholder="Movie description"
-                id="description"
-                class="form-control"
-                formControlName="description"
-                rows="6"></textarea>
-                <div *ngIf="description.invalid && (description.dirty || description.touched)"
-                  class="alert alert-danger">
-                  <div *ngIf="description.errors.required">
-                      Description is required
-                  </div>
-                  <div *ngIf="description.errors.maxlength">
-                      Description should not exceed 1000 characters
-                  </div>
-                  <div *ngIf="description.errors.minlength">
-                      Description should be at least 3 characters
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+
+      <div class="btn-container">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!movieForm.valid">Save</button>
+        <button 
+        type="button" 
+        class="btn btn-danger" 
+        (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
   </div>
+</div>
   

@@ -1,0 +1,71 @@
+@mixin responsive-boxes ($i-distance, $i-count) {
+    margin: 0 $i-distance $i-distance 0;
+    width: calc((100% - (#{$i-count} - 1) * #{$i-distance}) / #{$i-count});
+
+    &:nth-of-type(#{$i-count}n + #{$i-count}),
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+@mixin responsive-img-block ($height, $width) {
+    padding-top: $height / $width * 100%;
+    position: relative;
+}
+
+@mixin responsive-img-block-inner() {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    > img {
+        width: 100%;
+    }
+}
+
+@mixin ellipsis ($max-width) {
+    display: inline-block;
+    max-width: $max-width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin close-icon($size, $weight, $color) {
+    cursor: pointer;
+    display: block;
+    height: $size;
+    position: relative;
+    transition: transform .25s ease-in-out;
+    width: $size;
+
+    &:before,
+    &:after {
+        border-top: $weight solid $color;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center;
+        width: $size;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+}

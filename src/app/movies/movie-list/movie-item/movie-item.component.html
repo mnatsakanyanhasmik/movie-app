@@ -1,12 +1,15 @@
-<div class="col-md-4">
-    <a style="cursor: pointer; min-height: 250px"
-        [routerLink]="[index]"
-        routerLinkActive="active"
-        class="list-group-item clearfix">
-        <img [src]="movie.coverPath" alt="" style="max-height: 50px;" />
-        <h3>{{ movie.name }}</h3>
-        <p>{{ movie.year }}</p>
-        <p>{{ movie.duration.hours }}h {{ movie.duration.minutes }}m</p>
-        <p>{{ movie.description }}</p>
-    </a>
-</div>
+<a [routerLink]="[index]"
+    routerLinkActive="active"
+    class="movie-item-wrapper">
+    <div class="cover-img">
+        <div class="cover-img-inner">
+            <img [src]="movie.coverPath" alt="{{ movie.name }}"/>
+        </div>
+    </div>
+    <div class="details">
+        <div class="year">{{ movie.year }} &nbsp;&nbsp;/&nbsp;&nbsp;</div>
+        <div class="duration">{{ movie.duration.hours }}h {{ movie.duration.minutes }}m</div>
+    </div>
+    <h3>{{ movie.name }}</h3>
+    <div text-angular ng-model="htmlcontent" ta-max-text="40" class="description">{{ movie.description }}</div>
+</a>

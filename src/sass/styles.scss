@@ -1,5 +1,193 @@
 @import './common';
 
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
 body {
-    padding: $variable;
+    color: $body-color;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:hover,
+a:focus,
+a.active,
+a:visited {
+    color: $body-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: $primary-color;
+    font-weight: normal;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    min-width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 0;
+    border-radius: 0;
+    opacity: .9;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: $primary-color;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: $grey-3;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: $error-color;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: $distance-m 0;
+    
+    > .btn {
+        max-width: 50%;
+    }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+    border-color: $primary-color;
+    outline: 0;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #eee;
+    opacity: 1;
+}
+.form-control[disabled],
+fieldset[disabled] .form-control {
+cursor: not-allowed;
+}
+    textarea.form-control {
+    height: auto;
+}
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+hr {
+    margin-top: $distance-m;
+    margin-bottom: $distance-m;
+    border: 0;
+    border-top: 1px solid $grey-1;
+}
+
+select.ng-invalid.ng-touched,
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid $error-color;
+}
+
+.error-msg {
+    color: $error-color;
+    font-size: 12px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1170px;
+    min-width: 320px;
+    padding: 0 $distance-xs;
+}
+
+//Popover
+.popover {
+    position: absolute;
+    max-width: 500px;
+    min-height: 600px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    top: 10%;
+    width: 100%; 
+    z-index: 10;
+
+    &:before {
+        background-color: white;
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: .9;
+        position: fixed;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+    }
+
+    .popover-box {
+        background-color: #fff;
+        border: 1px solid $grey-2;
+        box-shadow: 0px 0px 2px 1px $grey-1;
+        margin-bottom: $distance-xxl;
+        padding: $distance-xl;
+        position: relative;
+        z-index: 100;
+    }
+}
+
+.close-popup {
+    @include close-icon(25px, 2px, $grey-2);
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: $distance-m;
 }
