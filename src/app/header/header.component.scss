@@ -1,5 +1,10 @@
 @import '../../sass/common';
 
+header {
+    @include clearfix();
+    overflow: hidden;
+}
+
 h1 {
     cursor: pointer;
     color: $primary-color;

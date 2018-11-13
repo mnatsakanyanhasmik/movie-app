@@ -1,16 +1,20 @@
 <div class="popover">
   <div class="popover-box">
-    <h1>Please fill in all details!</h1>
+    <span 
+      class="close-popup" 
+      routerLink="../">&nbsp;</span>
+    <h2>Movie details (all fields are required)!</h2>
     <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
 
-      <div class="form-group">
-        <label for="name">Title</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Movie title"
-          formControlName="name"
-          class="form-control">
+      <div class="form-title-year">
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Movie title"
+            formControlName="name"
+            class="form-control">
           <div *ngIf="name.invalid && (name.dirty || name.touched)"
             class="error-msg">
             <div *ngIf="name.errors.required">
@@ -20,33 +24,33 @@
                 Title should not exceed 100 characters
             </div>
           </div>
-      </div>
+        </div>
 
-      <div class="form-group">
-        <label for="year">Year</label>
-        <select
-        id="year"
-        class="form-control" 
-        formControlName="year">
-          <option [ngValue]="null" disabled [selected]="true">Choose release date</option>
-          <option 
-            *ngFor="let year of years" 
-            [value]="year">
-            {{year}}
-          </option>
-        </select>
-        <div *ngIf="year.invalid && year.touched"
-          class="error-msg">
-          <div *ngIf="year.errors.required">
-              Realease year is required
+        <div class="form-group">
+          <label for="year">Year</label>
+          <select
+          id="year"
+          class="form-control" 
+          formControlName="year">
+            <option [ngValue]="null" disabled [selected]="true">Release date</option>
+            <option 
+              *ngFor="let year of years" 
+              [value]="year">
+              {{year}}
+            </option>
+          </select>
+          <div *ngIf="year.invalid && year.touched"
+            class="error-msg">
+            <div *ngIf="year.errors.required">
+                Realease year is required
+            </div>
           </div>
         </div>
       </div>
 
-
-      <div formGroupName="duration">
+      <div class="form-duration" formGroupName="duration">
+        <label for="hours">Duration</label>
         <div class="form-group">
-          <label for="duration">Duration</label>
           <input
             type="number"
             placeholder="Hours"
@@ -55,18 +59,20 @@
             id="hours"
             formControlName="hours"
             class="form-control">
-            <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
-              class="error-msg">
-              <div *ngIf="hours.errors.required">
-                  Duration hours is required
-              </div>
-              <div *ngIf="hours.errors.min">
-                  Duration hours should be a positive number
-              </div>
-              <div *ngIf="hours.errors.max">
-                  Duration hours should not exceed 1000
-              </div>
+          <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
+            class="error-msg">
+            <div *ngIf="hours.errors.required">
+                Duration hours is required
             </div>
+            <div *ngIf="hours.errors.min">
+                Duration hours should be a positive number
+            </div>
+            <div *ngIf="hours.errors.max">
+                Duration hours should not exceed 1000
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <input
             type="number"
             placeholder="Minutes"
@@ -107,11 +113,9 @@
           </div>
       </div>
 
-
-      <div>
-        <img style="max-height: 200px;" [src]="coverPath.value" class="img-responsive">
+      <div class="cover-preview">
+        <img [src]="coverPath.value" class="img-responsive">
       </div>
-
 
       <div class="form-group">
         <label for="description">Description</label>
@@ -122,8 +126,9 @@
           class="form-control"
           formControlName="description"
           rows="6"></textarea>
-          <div *ngIf="description.invalid && (description.dirty || description.touched)"
-            class="alert alert-danger">
+          <div 
+            *ngIf="description.invalid && (description.dirty || description.touched)"
+            class="error-msg">
             <div *ngIf="description.errors.required">
                 Description is required
             </div>
@@ -135,7 +140,7 @@
             </div>
           </div>
       </div>
-
+      <hr>
       <div class="btn-container">
         <button
           type="submit"

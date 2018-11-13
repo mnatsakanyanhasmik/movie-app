@@ -1,0 +1,49 @@
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    min-width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 0;
+    border-radius: 0;
+    opacity: .85;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+.btn-primary {
+    background-color: $primary-color;
+}
+
+.btn-info {
+    background-color: $grey-3;
+}
+
+.btn-danger {
+    background-color: $error-color;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: $distance-m 0;
+    
+    > .btn {
+        max-width: 50%;
+    }
+}

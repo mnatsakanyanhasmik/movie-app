@@ -1,0 +1,15 @@
+@import '../../../sass/common';
+
+.movie-details {
+    @include clearfix();
+
+    > img {
+        float: left;
+        margin-right: $distance-l;
+    }
+
+    .year-duration {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,48 @@
+.popover {
+    position: absolute;
+    max-width: 600px;
+    min-width: 320px;
+    min-height: 600px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    top: 0;
+    width: 100%; 
+    z-index: 10;
+
+    @media only screen and (min-width: 601px) {
+        top: 10%;
+    }
+
+    &:before {
+        background-color: white;
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: .9;
+        position: fixed;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+    }
+
+    .popover-box {
+        background-color: #fff;
+        border: 1px solid $grey-2;
+        box-shadow: 0px 0px 2px 1px $grey-1;
+        margin-bottom: $distance-xxl;
+        padding: $distance-xl;
+        position: relative;
+        z-index: 100;
+    }
+}
+
+.close-popup {
+    @include close-icon(30px, 2px, $grey-2);
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: $distance-m;
+}

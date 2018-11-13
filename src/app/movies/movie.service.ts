@@ -10,7 +10,7 @@ export class MovieService {
     private movies: Movie[] = [
         new Movie(
             'Tucker & Dale vs. Evil',
-            'Two scruffy pals backwoods vacation takes a bloody turn when ignorant college students mistake them for a pair of murderous hillbillies.',
+            'Affable hillbillies Tucker and Dale are on vacation at their dilapidated mountain cabin when they are mistaken for murderers by a group of preppy college students.',
             'http://www.gstatic.com/tv/thumb/movieposters/8090141/p8090141_p_v8_af.jpg',
             2010,
             new MovieDuration(1, 30)),
@@ -19,7 +19,13 @@ export class MovieService {
             'With the war in Iraq raging on, a young man (Jonah Hill) offers his childhood friend a chance to make big bucks by becoming an international arms dealer. Together, they exploit a government initiative that allows businesses to bid on U.S. military contracts. Starting small allows the duo to rake in money and live the high life. ',
             'http://www.gstatic.com/tv/thumb/v22vodart/12118906/p12118906_v_v8_ab.jpg',
             2016,
-            new MovieDuration(2, 10))
+            new MovieDuration(2, 10)),
+        new Movie(
+            'Shaun of the Dead',
+            'A man decides to turn his moribund life around by winning back his ex-girlfriend, reconciling his relationship with his mother and dealing with an entire community that has returned from the dead to eat the living. ',
+            'http://www.gstatic.com/tv/thumb/v22vodart/34914/p34914_v_v8_ae.jpg',
+            2004,
+            new MovieDuration(1, 39))
     ];
 
     getMovies() {

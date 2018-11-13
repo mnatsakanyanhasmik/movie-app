@@ -1,9 +1,12 @@
 @import '../../../sass/common';
 
+.add-movie {
+    margin-bottom: $distance-m;
+}
+
 .movie-list {
     display: flex;
     flex-wrap: wrap;
-    padding: $distance-m 0; 
 }
 
 .movie-item {
@@ -35,9 +38,16 @@
     }
 }
 
-
 @media only screen and (min-width: 1025px) {
     .movie-item {
         @include responsive-boxes(25px, 5);
+    }
+}
+
+
+@media only screen and (max-width: 1170px) {
+    .movie-list,
+    .add-movie {
+        padding: 0 $distance-xs;
     }
 }

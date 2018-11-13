@@ -1,2 +1,47 @@
 @import '../../../sass/common';
 
+@media only screen and (min-width: 601px) {
+  .form-title-year,
+  .form-duration {
+    display: flex;
+    flex-flow: row wrap;
+
+    .form-group:first-of-type {
+      padding-right: $distance-xxs;
+    }
+    
+    .form-group:last-of-type {
+      padding-left: $distance-xxs;
+    }
+  }
+
+  .form-title-year {
+    .form-group:first-of-type {
+      width: 70%;
+    }
+    
+    .form-group:last-of-type {
+      width: 30%;
+    }
+  }
+  
+  .form-duration {
+    > label {
+      width: 100%; 
+    }
+
+    .form-group:first-of-type {
+      width: 50%;
+    }
+    
+    .form-group:last-of-type {
+      width: 50%;
+    }
+  }
+}
+
+.cover-preview {
+  > img {
+    max-height: 100px;
+  }
+}
