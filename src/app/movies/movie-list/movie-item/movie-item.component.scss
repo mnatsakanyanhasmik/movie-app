@@ -4,9 +4,7 @@ $desc-line: 23px;
 
 .movie-item-wrapper {
     border: 1px solid $grey-2;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: block;
     height: 100%;
     max-width: 100%;
     padding-bottom: $distance-xs;
