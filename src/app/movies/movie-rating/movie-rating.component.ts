@@ -12,14 +12,14 @@ export class MovieRatingComponent implements OnInit {
   @Input() isInteractive: boolean = false;
 
   constructor(private movieService: MovieService) {
-  
+
   }
 
   ngOnInit() {
   }
 
   onStarClicked(ratingStarIndex: number) {
-    if(this.isInteractive){
+    if (this.isInteractive) {
       this.movieService.rateMovie(this.id, ratingStarIndex + 1);
     }
   }

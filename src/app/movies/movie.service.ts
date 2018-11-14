@@ -31,9 +31,13 @@ export class MovieService {
             null)
     ];
 
+    private notifyMoviesChanged() {
+        this.moviesChanged.next(this.movies.slice());
+    }
+
     rateMovie(index: number, rateValue: number) {
         this.movies[index].rateValue = rateValue;
-        this.moviesChanged.next(this.movies.slice());
+        this.notifyMoviesChanged();
     }
 
     getMovies() {
@@ -46,17 +50,17 @@ export class MovieService {
 
     updateMovie(index: number, newMovie: Movie) {
         this.movies[index] = newMovie;
-        this.moviesChanged.next(this.movies.slice());
+        this.notifyMoviesChanged();
     }
 
     addMovie(toAddMovie: Movie) {
         this.movies.push(toAddMovie);
-        this.moviesChanged.next(this.movies.slice());
+        this.notifyMoviesChanged();
     }
 
     deleteMovie(index: number) {
         this.movies.splice(index, 1);
-        this.moviesChanged.next(this.movies.slice());
+        this.notifyMoviesChanged();
     }
 
 }

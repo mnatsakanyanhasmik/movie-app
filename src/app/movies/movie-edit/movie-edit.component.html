@@ -1,11 +1,11 @@
 <div class="popover">
   <div class="popover-box">
-    <span 
-      class="close-popup" 
+    <span
+      class="close-popup"
       routerLink="/">&nbsp;</span>
     <h2>Movie details (all fields are required)!</h2>
-    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
 
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
       <div class="form-title-year">
         <div class="form-group">
           <label for="name">Title</label>
@@ -15,7 +15,8 @@
             placeholder="Movie title"
             formControlName="name"
             class="form-control">
-          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
             class="error-msg">
             <div *ngIf="name.errors.required">
                 Title is required
@@ -29,16 +30,17 @@
         <div class="form-group">
           <label for="year">Release year</label>
           <select
-          id="year"
-          class="form-control" 
-          formControlName="year">
+            id="year"
+            class="form-control"
+            formControlName="year">
             <option 
               *ngFor="let year of years"
               [value]="year">
               {{year}}
             </option>
           </select>
-          <div *ngIf="year.invalid && year.touched"
+          <div
+            *ngIf="year.invalid && year.touched"
             class="error-msg">
             <div *ngIf="year.errors.required">
                 Realease year is required
@@ -58,7 +60,8 @@
             id="hours"
             formControlName="hours"
             class="form-control">
-          <div *ngIf="hours.invalid && (hours.dirty || hours.touched)"
+          <div
+            *ngIf="hours.invalid && (hours.dirty || hours.touched)"
             class="error-msg">
             <div *ngIf="hours.errors.required">
                 Duration hours is required
@@ -80,7 +83,8 @@
             id="minutes"
             formControlName="minutes"
             class="form-control">
-            <div *ngIf="minutes.invalid && (minutes.dirty || minutes.touched)"
+            <div
+              *ngIf="minutes.invalid && (minutes.dirty || minutes.touched)"
               class="error-msg">
               <div *ngIf="minutes.errors.required">
                   Duration minutes is required
@@ -103,7 +107,8 @@
           id="coverPath"
           formControlName="coverPath"
           class="form-control">
-          <div *ngIf="coverPath.invalid && (coverPath.dirty || coverPath.touched)"
+          <div
+            *ngIf="coverPath.invalid && (coverPath.dirty || coverPath.touched)"
             class="error-msg">
             <div *ngIf="coverPath.errors.required">
                 Cover path url is required
@@ -138,12 +143,14 @@
             </div>
           </div>
       </div>
+
       <hr>
+
       <div class="btn-container">
-        <button 
-        type="button" 
-        class="btn btn-danger" 
-        (click)="onCancel()">Cancel</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onCancel()">Cancel</button>
         <button
           type="submit"
           class="btn btn-primary"

@@ -3,14 +3,14 @@
 .movie-details {
     @include clearfix();
     overflow: hidden;
-    
+
     .image-detail {
         background-color: $grey-1;
         float: left;
         margin-right: $distance-l;
         width: 150px;
         min-height: 150px;
-        
+
         img {
             width: 100%;
         }

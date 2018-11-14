@@ -14,22 +14,22 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   id: number;
 
-  constructor( 
+  constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
     this.route.params
-    .subscribe(
-      (params: Params) => {
-        this.id = +params['id'];
-        this.movie = this.movieService.getMovie(this.id);
-      });
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.movie = this.movieService.getMovie(this.id);
+        });
   }
 
   onEditMovie() {
-    this.router.navigate(['edit'], {relativeTo: this.route});
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 
   onDeleteMovie() {

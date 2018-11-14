@@ -12,19 +12,19 @@ import { MovieDuration } from '../movie-duration.model';
 })
 export class MovieEditComponent implements OnInit {
   firstMovieYear: number = 1888;
-  
+
   id: number;
   editMode = false;
   movieForm: FormGroup;
   years: number[] = [];
-  
+
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router) {
 
     // We allow to add movies starting from today's year till "firstMovieYear"
-    for(let i = (new Date()).getFullYear(); i >= this.firstMovieYear; i--) {
+    for (let i = (new Date()).getFullYear(); i >= this.firstMovieYear; i--) {
       this.years.push(i);
     }
   }
@@ -32,20 +32,20 @@ export class MovieEditComponent implements OnInit {
   ngOnInit() {
 
     this.route.params
-    .subscribe(
-      (params: Params) => {
-        this.id = +params['id'];
-        this.editMode = params['id'] != null;
-        this.initForm();
-      });
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.editMode = params['id'] != null;
+          this.initForm();
+        });
   }
 
   onCancel() {
     this.routeUp();
   }
-  
+
   private routeUp() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   onSubmit() {
@@ -62,7 +62,7 @@ export class MovieEditComponent implements OnInit {
     let movieYear = (new Date).getFullYear();
     let movieCoverPath = '';
     let movieDescription = '';
-    let movieDuration : MovieDuration = new MovieDuration();
+    let movieDuration: MovieDuration = new MovieDuration();
 
     if (this.editMode) {
       const movie = this.movieService.getMovie(this.id);
@@ -83,8 +83,8 @@ export class MovieEditComponent implements OnInit {
         'minutes': new FormControl(movieDuration.minutes, [Validators.required, Validators.min(0), Validators.max(59)])
       }),
     });
-  
-    this.movieForm.controls['year'].setValue(movieYear, {onlySelf: true})
+
+    this.movieForm.controls['year'].setValue(movieYear, { onlySelf: true })
   }
 
   get name() { return this.movieForm.get('name'); }

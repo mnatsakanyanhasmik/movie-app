@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class MovieListComponent implements OnInit, OnDestroy {
   movies: Movie[];
   subscription: Subscription;
-  
+
   constructor(
     private movieService: MovieService,
     private router: Router,
@@ -21,16 +21,16 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.movieService.moviesChanged
-    .subscribe(
-      (movies: Movie[]) => {
-        this.movies = movies;
-      });
-    
+      .subscribe(
+        (movies: Movie[]) => {
+          this.movies = movies;
+        });
+
     this.movies = this.movieService.getMovies();
   }
 
   onNewMovie() {
-    this.router.navigate(['new'], {relativeTo: this.route})
+    this.router.navigate(['new'], { relativeTo: this.route })
   }
 
   ngOnDestroy() {

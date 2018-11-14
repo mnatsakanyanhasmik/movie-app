@@ -1,9 +1,8 @@
 <div class="rating">
     <span
-    *ngFor="let star of [0,1,2,3,4]; let i = index"
-    [ngClass]="{'active-star': i < rateValue}"
-    (click)="onStarClicked(i)">
+      *ngFor="let star of [0,1,2,3,4]; let i = index"
+      [ngClass]="{'active-star': i < rateValue}"
+      (click)="onStarClicked(i)">
       &#9733;
     </span>
 </div>
-  
