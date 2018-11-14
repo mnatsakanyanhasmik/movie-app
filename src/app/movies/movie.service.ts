@@ -35,29 +35,59 @@ export class MovieService {
         this.moviesChanged.next(this.movies.slice());
     }
 
+    /**
+     * Method to update the rating of the Movie
+     * 
+     * @param index of the movie to rate
+     * @param rateValue the new rating value
+     */
     rateMovie(index: number, rateValue: number) {
         this.movies[index].rateValue = rateValue;
         this.notifyMoviesChanged();
     }
 
+    /**
+     * Returns list of existing movies
+     */
     getMovies() {
         return this.movies.slice();
     }
 
+    /**
+     * Returns exact movie
+     * 
+     * @param index of the movie to return
+     */
     getMovie(index: number) {
         return this.movies[index];
     }
 
+    /**
+     * Method to update the movie
+     * 
+     * @param index of the movie to update
+     * @param newMovie
+     */
     updateMovie(index: number, newMovie: Movie) {
         this.movies[index] = newMovie;
         this.notifyMoviesChanged();
     }
 
+    /**
+     * Method to add a new movie
+     * 
+     * @param toAddMovie 
+     */
     addMovie(toAddMovie: Movie) {
         this.movies.push(toAddMovie);
         this.notifyMoviesChanged();
     }
 
+    /**
+     * Method to delete a movie
+     * 
+     * @param index of the movie to delete
+     */
     deleteMovie(index: number) {
         this.movies.splice(index, 1);
         this.notifyMoviesChanged();
