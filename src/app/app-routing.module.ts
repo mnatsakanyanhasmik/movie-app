@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MoviesComponent } from './movies/movies.component';
-import { MovieIntroComponent } from './movies/movie-intro/movie-intro.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 

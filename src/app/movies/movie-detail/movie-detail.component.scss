@@ -2,12 +2,18 @@
 
 .movie-details {
     @include clearfix();
-
-    > img {
+    overflow: hidden;
+    
+    .image-detail {
+        background-color: $grey-1;
         float: left;
         margin-right: $distance-l;
-        max-height: 200px;
-        max-width: 150px;
+        width: 150px;
+        min-height: 150px;
+        
+        img {
+            width: 100%;
+        }
     }
 
     h2 {

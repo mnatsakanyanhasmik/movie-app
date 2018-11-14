@@ -37,6 +37,14 @@
     background-color: $error-color;
 }
 
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: .65;
+}
+
 .btn-container {
     display: flex;
     flex-wrap: nowrap;

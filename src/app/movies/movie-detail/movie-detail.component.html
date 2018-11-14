@@ -10,14 +10,13 @@
     </div>
     <hr>
     <div class="movie-details">
-      <img
-        [src]="movie.coverPath"
-        alt="{{ movie.name }}"
-        class="img-responsive"
-        style="max-height: 200px;">
-
+      <div class="image-detail">
+        <img
+          [src]="movie.coverPath"
+          alt="{{ movie.name }}">
+      </div>
       <h2>{{ movie.name }}</h2>
-
+      
       <app-movie-rating
       [isInteractive]="true"
       [id]="id"

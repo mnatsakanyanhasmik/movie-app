@@ -23,11 +23,11 @@ export class MovieService {
             new MovieDuration(2, 10),
             null),
         new Movie(
-            'Shaun of the Dead',
-            'A man decides to turn his moribund life around by winning back his ex-girlfriend, reconciling his relationship with his mother and dealing with an entire community that has returned from the dead to eat the living. ',
-            'http://www.gstatic.com/tv/thumb/v22vodart/34914/p34914_v_v8_ae.jpg',
-            2004,
-            new MovieDuration(1, 39),
+            'The Nice Guys',
+            'In 1970s Los Angeles, a mismatched pair of private eyes investigate a missing girl and the mysterious death of a porn star.',
+            'https://m.media-amazon.com/images/M/MV5BMjcwNDA5MDYyNl5BMl5BanBnXkFtZTgwNjg0NDkzNzE@._V1_.jpg',
+            2016,
+            new MovieDuration(1, 56),
             null)
     ];
 
